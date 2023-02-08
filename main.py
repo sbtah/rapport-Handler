@@ -1,20 +1,16 @@
-from core.operator import base
+from handler.logic.base import BaseOperator
 from datetime import datetime
-
-projects = ["meowbaby", "kiddymoon", "misioohandmade", "ajababy"]
-
-
-for name in projects:
-    a = base.BaseOperator(website=name)
+from handler.settings import BASE_DIR, DATA_ROOT_DIR
+import os
 
 
-    a.find_or_create_website_directory(directory=a.project_directory)
-    if_file = a.find_or_create_xlsx_file(
-        directory=a.project_directory,
-        date_str=a.time_started_day,
-    )
-    file = a.open_xlsx_file(
-        directory=a.project_directory,
-        date_str=a.time_started_day,
-    )
-    print(file)
+today = datetime.today().strftime("%d-%m-%Y")
+
+operator = BaseOperator(website="castorama.pl")
+
+# operator.create_directory_for_website("castorama.pl")
+# castor_dir = operator.find_directory_for_website('castorama.pl')
+# rapport = operator.create_xlsx_file_for_date(castor_dir, "castorama.pl", today)
+
+
+print(operator.find_file_for_website_and_date("castorama.pl", "05-02-2023"))

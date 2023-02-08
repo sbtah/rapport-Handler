@@ -1,5 +1,5 @@
 # An XLSX file handler project
--
+
 
 This mini application is developed as a utility tool for e-Scraper project.
 Handler will fetch or receive data from database and then generate a proper xlsx rapport.
